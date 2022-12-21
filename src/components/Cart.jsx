@@ -6,16 +6,14 @@ import { cartData } from '../data/dummy';
 import { Button } from '.';
 
 const Cart = () => {
-    const { currentColor, setCartActive } = useStateContext();
+    const { currentColor } = useStateContext();
 
     return (
         <div className='bg-half-transparent w-full fixed nav-item right-0 top-0 '>
             <div className='float-right h-screen  duration-1000 ease-in-out bg-white dark:text-gray-200 dark:bg-[#484B52] transition-all md:w-400 p-8'>
                 <div className='flex justify-between items-center'>
                     <p className='font-semibold text-lg'>Cart</p>
-                    <button type='button' onClick={() => setCartActive(false)} style={{color: 'rgb(153, 171, 180)', borderRadius: '50%'}} className='text-2xl p-3 hover:drop-shadow-xl hover:bg-light-gray'>
-                        <MdOutlineCancel/>
-                    </button>
+                    <Button icon={<MdOutlineCancel />} color={currentColor} bgHoverColor='light-gray' size='2xl' borderRadius='50%'/>
                 </div>
                 {cartData?.map((item, index) => (
                     <div key={index}>
@@ -56,4 +54,4 @@ const Cart = () => {
     )
 }
 
-export default Cart
+export default Cart;
